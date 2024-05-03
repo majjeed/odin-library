@@ -17,8 +17,18 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 function displayBooks() {
-  let p = document.querySelector('p');
+  let container = document.querySelector('.container');
+  container.innerHTML = '';
   //myLibrary.forEach(book => p.innerHTML += "<br>" + Object.values(book).join(" "));
-  myLibrary.forEach(book => p.innerHTML += "<br>" + book.info());
-  document.body.appendChild(p);
+  //myLibrary.forEach(book => p.innerHTML += "<br>" + book.info());
+  //document.body.appendChild(p);
+
+  myLibrary.forEach(book => container.innerHTML += `<div class="card">
+  Title: ${book.title}
+  Author: ${book.author}
+  Total Pages: ${book.pages}
+  Status: ${book.read}
+  </div>
+  `);
+  document.body.appendChild(container);
 }
