@@ -6,13 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Odin Library</title>
     <link rel="stylesheet" href="./styles.css">
-    <script src="./scripts.js"></script>
+    <script src="./scripts.js" defer></script>
 </head>
 
 <body>
     <p>Please open the dev tools console to interact</p>
+    <button type="button" onclick="showDialog()" id="newBookBtn">New Book</button>
+
+    <dialog id="myDialog">This is a dialog window for adding a new book.
+        <button type="button" onclick="closeDialog()">X</button>
+        <form action="" method="get">
+            <div>
+                <label for="bookTitle">Book Title</label>
+                <input type="text" id="bookTitle" name="bookTitle">
+            </div>
+            <div>
+                <label for="bookAuthor">Book Author</label>
+                <input type="text" id="bookAuthor" name="bookAuthor">
+            </div>
+            <div>
+                <label for="bookPages">Number of Pages</label>
+                <input type="number" id="bookPages" name="bookPages">
+            </div>
+            <div>
+                <label for="bookRead">Did you read this book?</label>
+                <input type="radio" name="bookRead" value="true">Yes</input>
+                <input type="radio" name="bookRead" value="false">No</input>
+            </div>
+            <div>
+                <button type="button" id="addBook">Add Book</button>
+            </div>
+        </form>
+    </dialog>
     <div class="container">
-        
+
     </div>
 </body>
 
