@@ -39,6 +39,7 @@ function displayBooks() {
     Total Pages: ${myLibrary[i].pages} <br>
     Status: ${myLibrary[i].read ? 'read' : 'not read yet'} <br>
     <button type="button" class="removeBookBtn" data-book-index="${i}" >Remove</button>
+    <button type="button" class="changeStatusBtn" data-book-index="${i}" >Change Read Status</button>
     </div>
     `;
   }
@@ -49,8 +50,16 @@ function displayBooks() {
 
   removeBtns.forEach(btn => btn.addEventListener('click', () => {
     const index = btn.dataset.bookIndex;
-    console.log(myLibrary.splice(index, 1));
+    myLibrary.splice(index, 1);
     displayBooks(); // Update the display after removing the book
+  }));
+
+  const changeStatusBtns = document.querySelectorAll('.changeStatusBtn');
+
+  changeStatusBtns.forEach(btn => btn.addEventListener('click', () => {
+    const index = Number(btn.dataset.bookIndex);
+    myLibrary[index].read = !(myLibrary[index].read);
+    displayBooks();
   }));
 }
 
