@@ -1,17 +1,19 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.info = function () {
-    return `${title} by ${author}, ${pages} pages, ${this.read ? 'read' : 'not read yet'}`;
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+
+  info() {
+    return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read ? 'read' : 'not read yet'}`;
   }
 }
 
 function addBookToLibrary(title, author, pages, read) {
-  // do stuff here
   let book = new Book(title, author, pages, read);
   myLibrary.push(book);
 }
@@ -19,18 +21,6 @@ function addBookToLibrary(title, author, pages, read) {
 function displayBooks() {
   let container = document.querySelector('.container');
   container.innerHTML = '';
-  //myLibrary.forEach(book => p.innerHTML += "<br>" + Object.values(book).join(" "));
-  //myLibrary.forEach(book => p.innerHTML += "<br>" + book.info());
-  //document.body.appendChild(p);
-
-  // myLibrary.forEach(book => container.innerHTML += `<div class="card">
-  // Title: ${book.title} <br>
-  // Author: ${book.author} <br>
-  // Total Pages: ${book.pages} <br>
-  // Status: ${book.read ? 'read' : 'not read yet'} <br>
-  // <button type="button" class="removeBookBtn">Remove</button>
-  // </div>
-  // `);
 
   for (let i = 0; i <= myLibrary.length - 1; i++) {
     container.innerHTML += `<div class="card">
@@ -62,8 +52,6 @@ function displayBooks() {
     displayBooks();
   }));
 }
-
-
 
 // functions to fill a random number of books 
 function createBooks(numBooks) {
@@ -111,4 +99,3 @@ newBookBtn.addEventListener('click', () => {
   closeDialog();
   ;
 });
-
